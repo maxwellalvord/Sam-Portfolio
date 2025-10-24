@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-import sampleAudio from "/public/projects/Sample.webm"
+import sampleAudio from "/src/audio/Sample.webm"
 
   const Player = () => (
     <AudioPlayer
