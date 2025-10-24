@@ -1,4 +1,19 @@
 import { motion } from "framer-motion";
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
+import sampleAudio from "/public/projects/Sample.webm"
+
+  const Player = () => (
+    <AudioPlayer
+        customAdditionalControls={[]}
+        customVolumeControls={[]}
+        showJumpControls={false}
+        src={sampleAudio}
+        layout="horizontal-reverse"
+    />
+    );
+
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -77,6 +92,17 @@ export const Landing = () => {
                                 <i className="fa-brands fa-twitter"></i>
                             </motion.a>
                         </motion.div>
+                    </motion.div>
+
+                    <motion.div 
+                        className="hero-image-container"
+                        initial={{ opacity: 0, x: 50}}
+                        animate={{ opacity: 1, x: 0}}
+                        transition={{duration: 0.8, delay: 0.4 }}
+                    >
+                        <div className="code-display">
+                          <Player></Player>
+                        </div>
                     </motion.div>
                 </div>
         </motion.section>

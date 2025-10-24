@@ -305,7 +305,13 @@ body {
   color: var(--accent-color);
 }
 
+.code-display {
+  width: 300px;
+}
 
+.rhap_container {
+  border-radius: 50px;
+}
 
 
 
