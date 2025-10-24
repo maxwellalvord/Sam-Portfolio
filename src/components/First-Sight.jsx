@@ -55,7 +55,7 @@ export const Landing = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                See what I have done
+                                Check my work
                             </motion.a>
                             <motion.a
                                 href="#contacts"
@@ -68,13 +68,13 @@ export const Landing = () => {
                         </motion.div>
                         <motion.div className="social-links" variants={staggerContainer}>
                             <motion.a href="https://soundcloud.com" target="_blank">
-                                <i class="fa-brands fa-soundcloud"></i>
+                                <i className="fa-brands fa-soundcloud"></i>
                             </motion.a>
                             <motion.a href="https://linkedin.com" target="_blank"> 
-                                <i class="fa-brands fa-linkedin"></i>
+                                <i className="fa-brands fa-linkedin"></i>
                             </motion.a>
                             <motion.a href="https://twitter.com" target="_blank">
-                                <i class="fa-brands fa-twitter"></i>
+                                <i className="fa-brands fa-twitter"></i>
                             </motion.a>
                         </motion.div>
                     </motion.div>
