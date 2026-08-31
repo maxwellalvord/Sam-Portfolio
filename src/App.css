@@ -294,8 +294,8 @@ section {
 .poster-tile {
   border: 1px solid var(--border-strong);
   background: var(--bg-alt);
-  padding: 2rem;
-  width: 320px;
+  width: 100%;
+  max-width: 480px;
   position: relative;
 }
 
@@ -310,12 +310,96 @@ section {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   padding: 0.3rem 0.6rem;
+  z-index: 2;
 }
 
-.rhap_container {
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+/* clickable track-strip carousel replacing the old audio player */
+.track-carousel {
+  display: flex;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.track-strip {
+  flex: 1;
+  min-width: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 0 1rem;
+  border-right: 1px solid var(--border);
+  background: var(--bg-alt);
+  cursor: pointer;
+  overflow: hidden;
+  transition: flex-grow 0.4s ease, background 0.3s ease;
+}
+
+.track-strip:last-child {
+  border-right: none;
+}
+
+.track-strip:hover {
+  background: rgba(242, 240, 234, 0.04);
+}
+
+.track-strip.active {
+  flex-grow: 4;
+  background: var(--bg);
+}
+
+.track-index {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--fg-faint);
+  letter-spacing: 0.05em;
+}
+
+.track-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  white-space: nowrap;
+  flex: 1;
+}
+
+.track-strip.active .track-title {
+  writing-mode: horizontal-tb;
+  transform: none;
+  font-size: 0.85rem;
+  color: var(--fg);
+  flex: 0;
+}
+
+.track-icon {
+  font-size: 0.75rem;
+  color: var(--fg-faint);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.track-strip:hover .track-icon,
+.track-strip.active .track-icon {
+  opacity: 1;
+}
+
+.track-strip.active .track-icon {
+  color: var(--accent);
+}
+
+.track-strip.playing .track-icon {
+  animation: pulse-icon 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 /* vertical poster-style decorative text */

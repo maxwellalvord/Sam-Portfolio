@@ -1,19 +1,5 @@
 import { motion } from "framer-motion";
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
-
-import sampleAudio from "/src/audio/Sample.webm"
-
-  const Player = () => (
-    <AudioPlayer
-        customAdditionalControls={[]}
-        customVolumeControls={[]}
-        showJumpControls={false}
-        src={sampleAudio}
-        layout="horizontal-reverse"
-    />
-    );
-
+import { TrackCarousel } from "./TrackCarousel";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -100,7 +86,7 @@ export const Landing = () => {
                         transition={{duration: 0.8, delay: 0.4 }}
                     >
                         <div className="poster-tile">
-                          <Player></Player>
+                          <TrackCarousel />
                         </div>
                     </motion.div>
 
