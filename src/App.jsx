@@ -14,15 +14,14 @@ function App() {
 
   return (
     <div className={`app ${isLoaded ? "loaded" : ""}`}>
+      <div className="grain" aria-hidden="true"></div>
       <Navbar/>
 
       <Landing/>
       <Second/>
       <Contact/>
 
-      <>
-      <p>&copy; 2025 Maxwell Alvord. All rights reserved.</p>
-      </>
+      <p className="site-footer">&copy; 2026 Maxwell Alvord. All rights reserved.</p>
     </div>
   )
 }

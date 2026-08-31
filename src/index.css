@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  font-family: "Bitcount Grid Single", system-ui;
+  font-family: "JetBrains Mono", monospace;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0a0a0a;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -45,6 +45,6 @@ body {
 
 /* Selection color */
 ::selection {
-  background: var(--primary-color);
-  color: white;
+  background: var(--accent-red);
+  color: var(--bg);
 }

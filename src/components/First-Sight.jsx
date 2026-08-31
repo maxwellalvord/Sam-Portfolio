@@ -46,13 +46,12 @@ export const Landing = () => {
                     animate="animate"
                     >
                         <motion.div className="hero-badge">
-                            <span className="stamp">Welcome</span>
-                            <span className="stamp is-nope">To The</span>
-                            <span className="stamp is-approved">Sam</span>
-                            <span className="stamp is-draft">Show</span>
+                            <span className="tag-chip accent">Welcome</span>
+                            <span className="tag-chip">Sam Show</span>
+                            <span className="tag-chip">2026</span>
                         </motion.div>
-                        <motion.h1 
-                        className="glitch"
+                        <motion.h1
+                        className="hero-title"
                         variants={fadeInUp}
                         whileHover={{ scale: 1.02}}
                         >Name or stage name here</motion.h1>
@@ -73,7 +72,7 @@ export const Landing = () => {
                                 Check my work
                             </motion.a>
                             <motion.a
-                                href="#contacts"
+                                href="#contact"
                                 className="cta-secondary"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -94,16 +93,18 @@ export const Landing = () => {
                         </motion.div>
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                         className="hero-image-container"
                         initial={{ opacity: 0, x: 50}}
                         animate={{ opacity: 1, x: 0}}
                         transition={{duration: 0.8, delay: 0.4 }}
                     >
-                        <div className="code-display">
+                        <div className="poster-tile">
                           <Player></Player>
                         </div>
                     </motion.div>
+
+                    <span className="vertical-tag">Portfolio &mdash; Selected Works</span>
                 </div>
         </motion.section>
     );
