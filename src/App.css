@@ -36,7 +36,10 @@ body {
 
 .app.loaded {
   opacity: 1;
-  transform: translateY(0);
+  /* "none" (not translateY(0)) - any transform value on this ancestor
+     turns it into a containing block for position:fixed descendants like
+     .navbar, which would then scroll away instead of staying pinned. */
+  transform: none;
 }
 
 /* film-grain overlay tying every section together */
@@ -77,20 +80,24 @@ section {
 /* ---------- Nav ---------- */
 
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 1.25rem 5%;
   z-index: 1000;
 }
 
 .logo {
+  position: fixed;
+  top: 1.25rem;
+  left: 5%;
   display: inline-flex;
   align-items: center;
+  z-index: 1001;
 }
 
 .logo img {
@@ -101,8 +108,20 @@ section {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2.5rem;
   list-style: none;
+}
+
+.nav-home-link {
+  display: flex;
+  align-items: center;
+}
+
+.nav-home-link img {
+  height: 16px;
+  width: auto;
+  display: block;
 }
 
 .nav-links a {

@@ -16,49 +16,56 @@ const staggerContainer = {
 
 export const Navbar = () => {
   return (
-    <motion.nav
-      className="navbar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+    <>
       <motion.a
         href="#home"
         className="logo"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         <img src="/projects/suitosamuchrome.png" alt="Logo" />
       </motion.a>
 
-      <motion.ul
-        className="nav-links"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
+      <motion.nav
+        className="navbar"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <motion.li
-          variants={fadeInUp}
-          whileHover={{ scale: 1.1}}
-          whileTap={{ scale: 0.95}}
+        <motion.ul
+          className="nav-links"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
         >
-            <a href="#home">Home</a>
-        </motion.li>
-        <motion.li
-          variants={fadeInUp}
-          whileHover={{ scale: 1.1}}
-          whileTap={{ scale: 0.95}}
-        >
+          <motion.li
+            variants={fadeInUp}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <a href="#home" className="nav-home-link">
+              <img src="/projects/suitosamuchrome.png" alt="Home" />
+            </a>
+          </motion.li>
+          <motion.li
+            variants={fadeInUp}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <a href="#projects">Projects</a>
-        </motion.li>
-        <motion.li
-          variants={fadeInUp}
-          whileHover={{ scale: 1.1}}
-          whileTap={{ scale: 0.95}}
-        >
+          </motion.li>
+          <motion.li
+            variants={fadeInUp}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <a href="#contact">Contact</a>
-        </motion.li>
-      </motion.ul>
-    </motion.nav>
+          </motion.li>
+        </motion.ul>
+      </motion.nav>
+    </>
   );
 };
