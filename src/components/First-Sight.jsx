@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { TrackCarousel } from "./TrackCarousel";
+import { ImageDistortion } from "./ImageDistortion";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -24,6 +25,7 @@ export const Landing = () => {
             animate={{ opacity: 1}}
             transition={{ duration: 0.8, delay: 0.2 }}
         >
+                <ImageDistortion />
                 <div className="hero-container">
                     <motion.div 
                     className="hero-content" 

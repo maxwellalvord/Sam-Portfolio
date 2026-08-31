@@ -149,6 +149,20 @@ section {
   overflow: hidden;
 }
 
+.hero-distortion {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-distortion canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-container {
   display: flex;
   justify-content: space-between;
@@ -289,6 +303,8 @@ section {
   flex: 1;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .poster-tile {
