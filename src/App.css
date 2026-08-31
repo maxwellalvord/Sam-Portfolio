@@ -85,10 +85,7 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 5%;
-  background: rgba(10, 10, 10, 0.75);
-  backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid var(--border);
 }
 
 .logo {

@@ -3,7 +3,7 @@ import { Renderer, Program, Mesh, Texture, Triangle, Flowmap, Vec2 } from "ogl";
 
 const IMAGE_SRC = "/projects/cloudrender_v2.png";
 const IMAGE_ASPECT = 1920 / 1080;
-const STRENGTH = 0.6;
+const STRENGTH = 0.9;
 const AMBIENT_STRENGTH = 0.18;
 const BLUR_RADIUS = 0.022;
 const MAX_PIXEL_JUMP = 250;
@@ -79,12 +79,16 @@ const fragment = /* glsl */ `
 
     vec4 rippledColor = texture2D(tMap, displaced);
 
-    float aberration = flowMag * 0.02;
+    float aberration = flowMag * 0.04;
     rippledColor.r = texture2D(tMap, clamp(displaced + vec2(aberration, 0.0), vec2(0.001), vec2(0.999))).r;
     rippledColor.b = texture2D(tMap, clamp(displaced - vec2(aberration, 0.0), vec2(0.001), vec2(0.999))).b;
 
-    // cross-fade blur -> ripple based on how active the cursor has been here
-    float focus = smoothstep(0.0, 0.15, flowMag);
+    // cross-fade blur -> ripple based on how active the cursor has been here.
+    // A raised, powered threshold means only the hottest/most-recent part of
+    // the trail counts as fully "rippled" - as it decays the affected area
+    // shrinks toward the center instead of fading at a constant width, giving
+    // a tapered teardrop tail rather than a uniform-width ridge.
+    float focus = pow(smoothstep(0.0, 0.2, flowMag), 1.3);
     gl_FragColor = mix(blurredColor, rippledColor, focus);
   }
 `;
@@ -110,7 +114,7 @@ export const ImageDistortion = () => {
     let frameId = null;
 
     const buildScene = () => {
-      flowmap = new Flowmap(gl, { falloff: 0.18, alpha: 1, dissipation: 0.96 });
+      flowmap = new Flowmap(gl, { falloff: 0.19, alpha: 1, dissipation: 0.9 });
 
       texture = new Texture(gl);
       if (loadedImg) texture.image = loadedImg;
