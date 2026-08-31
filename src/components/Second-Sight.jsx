@@ -14,12 +14,14 @@ const staggerContainer = {
   },
 };
 
+// Add a real `image` per project once assets are ready - tiles stay as
+// placeholders until then.
 const projects = [
-  { title: "Project 01", tag: "Branding", image: "/projects/bg2.jpg", span: true },
-  { title: "Project 02", tag: "Visual", image: "/projects/bg3.jpg" },
-  { title: "Project 03", tag: "Motion", image: "/projects/bgphoto.jpg" },
-  { title: "Project 04", tag: "Photography", image: "/projects/gettyimages-872756920-640x640.jpg" },
-  { title: "Project 05", tag: "Design", image: "/projects/1000_F_262481658_hfHV4aNMhckHbgHc1UbJnf9DSSwB6vIe.jpg" },
+  { title: "Project 01", tag: "Branding", span: true },
+  { title: "Project 02", tag: "Visual" },
+  { title: "Project 03", tag: "Motion" },
+  { title: "Project 04", tag: "Photography" },
+  { title: "Project 05", tag: "Design" },
 ];
 
 export const Second = () => {
@@ -58,7 +60,9 @@ export const Second = () => {
               className={`work-tile ${project.span ? "span-2" : ""}`}
               variants={fadeInUp}
             >
-              <img src={project.image} alt={project.title} loading="lazy" />
+              <div className="work-tile-placeholder">
+                <span>Coming soon</span>
+              </div>
               <div className="work-tile-info">
                 <span className="work-tile-title">{project.title}</span>
                 <span className="tag-chip">{project.tag}</span>

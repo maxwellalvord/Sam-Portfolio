@@ -22,13 +22,14 @@ export const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <motion.div
+      <motion.a
+        href="#home"
         className="logo"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        Portfolio
-      </motion.div>
+        <img src="/projects/suitosamuchrome.png" alt="Logo" />
+      </motion.a>
 
       <motion.ul
         className="nav-links"

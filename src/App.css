@@ -89,12 +89,14 @@ section {
 }
 
 .logo {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -206,7 +208,7 @@ section {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 9vw, 5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 0.95;
@@ -470,17 +472,32 @@ section {
   grid-row: span 2;
 }
 
-.work-tile img {
+.work-tile-placeholder {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.1) brightness(0.85);
-  transition: filter 0.4s ease, transform 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--bg-alt),
+    var(--bg-alt) 10px,
+    rgba(242, 240, 234, 0.03) 10px,
+    rgba(242, 240, 234, 0.03) 20px
+  );
+  transition: background-color 0.4s ease;
 }
 
-.work-tile:hover img {
-  filter: grayscale(0.2) contrast(1.05) brightness(0.95);
-  transform: scale(1.04);
+.work-tile-placeholder span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+.work-tile:hover .work-tile-placeholder {
+  background-color: rgba(242, 240, 234, 0.05);
 }
 
 .work-tile-info {
@@ -541,7 +558,7 @@ section {
 
 .contact-headline {
   font-family: var(--font-display);
-  font-size: 4rem;
+  font-size: clamp(2rem, 8vw, 4rem);
   font-weight: 800;
   text-transform: uppercase;
   line-height: 1;
@@ -610,6 +627,21 @@ section {
 
   .contact-meta {
     align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 5%;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 1.25rem;
   }
 }
 

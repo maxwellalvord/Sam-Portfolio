@@ -53,13 +53,13 @@ export const Contact = () => {
           <motion.div variants={fadeInUp}>
             <div className="contact-meta-label">Socials</div>
             <div className="social-links">
-              <motion.a href="https://soundcloud.com" target="_blank">
+              <motion.a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer">
                   <i className="fa-brands fa-soundcloud"></i>
               </motion.a>
-              <motion.a href="https://linkedin.com" target="_blank">
+              <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                   <i className="fa-brands fa-linkedin"></i>
               </motion.a>
-              <motion.a href="https://twitter.com" target="_blank">
+              <motion.a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                   <i className="fa-brands fa-twitter"></i>
               </motion.a>
             </div>
